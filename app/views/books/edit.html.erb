@@ -1,15 +1,31 @@
+ <style>
+   commit{
+     
+   }
+ </style>
+ 
 <h1>編集画面</h1>
 
+ <% if @book.errors.any? %>
+  <%= @book.errors.count %> errors prohibited this book from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_with model: @book, url:update_book_path(@book.id), method: :patch do |f| %>
 
   <h4>タイトル</h4>
-  <%= f.text_field :title %>
+  <%= f.text_field :title,class: 'commit'  %>
   
   <h4>本文</h4>
-  <%= f.text_area :body %></br>
   
+  <%= f.text_area :body,class: 'commit'  %></br>
+  
+
   <%= f.submit 'Update Book' %></br>
   <%= link_to "Show",book_path %>
-  <%= link_to "Back",new_book_path %>
+  <%= link_to "Back",books_path %>
   
 <% end %>
