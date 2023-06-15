@@ -44,7 +44,7 @@ margin-left:15px;
         <td class='booktitle'><%= book.title %></td>
         <td class='bookbody'><%= book.body %></td>
         <td><span ><%= link_to "show", "/books/#{book.id}" %></span></td>
-        <td><span ><%= link_to "edit", edit_list_path(book.id)%></span></td>
+        <td><span ><%= link_to "edit", edit_book_path(book.id)%></span></td>
         <td><span><%= link_to "delete", destroy_book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></span></td>
     <% end %>
   </tbody>
